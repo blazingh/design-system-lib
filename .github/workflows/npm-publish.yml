@@ -27,6 +27,17 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
+      - run: |
+          # Extract release version from the tag
+          RELEASE_VERSION=${GITHUB_REF#refs/tags/}
+          echo "Release version: $RELEASE_VERSION"
+
+          # Update the version in package.json
+          jq --arg version "$RELEASE_VERSION" '.version = $version' package.json > package.temp.json
+          mv package.temp.json package.json
+
+          # Verify the version has been updated
+          cat package.json
       - run: npm ci
       - run: npm run build:lib
       - run: npm publish --access public
