@@ -21,7 +21,7 @@
     "test": "echo \"Info: no tests specified\" && exit 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build -o docs"
   },
   "peerDependencies": {
     "react": ">=18",
