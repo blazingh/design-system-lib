@@ -18,6 +18,7 @@
     "build": "tsc -b && vite build",
     "build:lib": "rollup -c --bundleConfigAsCjs",
     "lint": "eslint .",
+    "test": "echo \"Info: no tests specified\" && exit 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
